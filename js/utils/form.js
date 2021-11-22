@@ -1,7 +1,7 @@
-import { showErrorSubmitModal, showSuccessModal } from './popup.js';
 import { sendOffer } from './server.js';
 
-const submitButton = document.querySelector('.ad-form__submit');
+const form = document.querySelector('.ad-form');
+// const submitButton = document.querySelector('.ad-form__submit');
 const clearButton = document.querySelector('.ad-form__reset');
 
 const setClearForm = function (action) {
@@ -10,13 +10,15 @@ const setClearForm = function (action) {
   });
 };
 
-const setSubmitOffer = function () {
-  submitButton.addEventListener('click', (evt) => {
-    evt.preventDefault;
+const setSubmitOffer = (onSuccess, onFail) => {
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const formData = new FormData(evt.target);
+    // console.log(formData);
     sendOffer(
-      showSuccessModal(),
-      showErrorSubmitModal(),
-      new FormData(evt.target),
+      onSuccess,
+      onFail,
+      formData,
     );
   });
 };

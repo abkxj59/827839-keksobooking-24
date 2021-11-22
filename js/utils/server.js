@@ -1,5 +1,5 @@
 const getOffersData = (onSuccess, onFail) => {
-  fetch('https://23.javascript.pages.academy/keksobooking/data')
+  fetch('https://24.javascript.pages.academy/keksobooking/data')
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -15,9 +15,9 @@ const getOffersData = (onSuccess, onFail) => {
 
 const sendOffer = function (onSuccess, onFail, offer) {
   fetch(
-    'https://23.javascript.pages.academy/keksobooking',
+    'https://24.javascript.pages.academy/keksobooking',
     {
-      method: postMessage,
+      method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -29,9 +29,13 @@ const sendOffer = function (onSuccess, onFail, offer) {
         onSuccess();
       } else {
         onFail();
+        // throw new Error(`${response.status} ${response.statusText}`);
       }
     })
-    .catch(() => onFail());
+    .catch(() => {
+      onFail();
+      // console.log(err);
+    });
 };
 
 export {getOffersData, sendOffer};

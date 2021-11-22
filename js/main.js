@@ -1,9 +1,9 @@
-// import {getOffersList} from './utils/offers-generator.js';
-// import {renderDetailCard, showOffers} from './utils/show-offers.js';
+
 import {getOffersData} from './utils/server.js';
 import {deactivateForm} from './utils/activation.js';
 import {initiateMap, addMainMarker, addSimilarOffers} from './utils/map.js';
-import {showErrorServerModal} from './utils/popup.js';
+import {showErrorServerModal, showSuccessModal, showErrorSubmitModal} from './utils/popup.js';
+import {setSubmitOffer} from './utils/form.js';
 import './utils/validation.js';
 import './utils/filter.js';
 
@@ -19,3 +19,4 @@ getOffersData(
   showErrorServerModal,
 );
 
+setSubmitOffer(showSuccessModal, showErrorSubmitModal);

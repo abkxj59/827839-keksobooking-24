@@ -5,15 +5,23 @@ const filterInputs = filter.querySelectorAll('input, select');
 
 const deactivateForm = function () {
   form.classList.add('ad-form--disabled');
-  formInputs.disabled = true;
+  formInputs.forEach((input) => {
+    input.disabled = true;
+  });
   filter.classList.add('map__filters--disabled');
-  filterInputs.disabled = true;
+  filterInputs.forEach((input) => {
+    input.disabled = true;
+  });
 };
 const activateForm = function () {
   form.classList.remove('ad-form--disabled');
-  formInputs.disabled = false;
+  formInputs.forEach((input) => {
+    input.disabled = false;
+  });
   filter.classList.remove('map__filters--disabled');
-  filterInputs.disabled = false;
+  filterInputs.forEach((input) => {
+    input.disabled = false;
+  });
 };
 
 export {deactivateForm, activateForm};
