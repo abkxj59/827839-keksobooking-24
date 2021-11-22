@@ -1,7 +1,7 @@
 import {activateForm} from './activation.js';
 import {writeNewAdress} from './validation.js';
 import {renderDetailCard} from './show-offers.js';
-import { setClearForm } from './form.js';
+// import { setClearForm } from './form.js';
 
 const initiateMap = function () {
   const map = L.map('map-canvas');
@@ -47,14 +47,24 @@ const addMainMarker = function(map) {
     writeNewAdress(markerCoordinates);
   });
 
-  setClearForm(() => {
-    L.marker(
-      {
-        lat: 35.6851408,
-        lng: 139.752789,
-      },
-    );
-  });
+  // setClearForm(() => {
+  //   L.marker(
+  //     {
+  //       lat: 35.6851408,
+  //       lng: 139.752789,
+  //     },
+  //   );
+  // });
+};
+
+const resetMainMarker = () => {
+  L.marker(
+    {
+      lat: 35.6851408,
+      lng: 139.752789,
+    },
+  );
+  writeNewAdress(L.marker.getLatLng());
 };
 
 const addSimilarOffers = function(offersList, map) {
@@ -77,4 +87,4 @@ const addSimilarOffers = function(offersList, map) {
   });
 };
 
-export {initiateMap, addMainMarker, addSimilarOffers};
+export {initiateMap, addMainMarker, addSimilarOffers, resetMainMarker};

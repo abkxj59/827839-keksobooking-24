@@ -18,9 +18,9 @@ const sendOffer = function (onSuccess, onFail, offer) {
     'https://24.javascript.pages.academy/keksobooking',
     {
       method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+      // headers: {
+      //   'Content-Type': 'multipart/form-data',
+      // },
       body: offer,
     },
   )
